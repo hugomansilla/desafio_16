@@ -1,0 +1,23 @@
+body {
+    background-color: black;
+    margin-top: 50px;
+    color: white;
+    text-align: center;
+}
+
+.conversor{
+    background-color: gray;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.moneda{
+    margin-top: 20px;
+}
+
+.btg{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
