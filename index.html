@@ -16,6 +16,9 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
 
+    <!-- Chart JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   </head>
 
   <body>
@@ -39,14 +42,14 @@
                 <option value="utm"> UTM </option>
             </select>
             <br>
-            <button type="button" class="btg" onclick="getMoneda()">Buscar</button>
+            <button type="button" class="btn btn-primary btg" onclick="getMoneda()">Buscar</button>
             <p class="moneda_valor">Resultado: </p>
         </div>
 
-        <div class="grafico">
+        <canvas id="grafico">
 
 
-        </div>
+        </canvas>
 
     </div>
 

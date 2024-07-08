@@ -35,8 +35,43 @@ async function getMoneda(){
         const element = document.querySelector(".moneda_valor")
         element.innerHTML = 'Resultado: $' + resultadodec
 
-        // Grafico 
+        // Obtener datos de la serie de tiempo
+        const resTimeSeries = await fetch(`https://mindicador.cl/api/{monedaSeleccionada}`);
+        const dataTimeSeries = await resTimeSeries.json();
+        const timeSeries = dataTimeSeries.serie;
 
+        // Formatear datos para Chart.js
+        const labels = timeSeries.map(entry => entry.fecha.split("T")[0]);
+        const values = timeSeries.map(entry => entry.valor);
+
+        // Crear gráfico
+        const ctx = document.querySelector('#grafico').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Valor de ' + monedaSeleccionada.toUpperCase(),
+                    data: values,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'time',
+                        time: {
+                            unit: 'day'
+                        }
+                    },
+                    y: {
+                        beginAtZero: false
+                    }
+                }
+            }
+        });
 
     } catch (error) {
         alert(error.message);
