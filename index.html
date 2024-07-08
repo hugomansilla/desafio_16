@@ -30,12 +30,17 @@
 
         <div class="conversor col-md-4">
             <h3>Pesos CLP</h3>
-            <input type="text">
+            <input type="number" id="peso">
             <h6 class="moneda">Moneda a convertir:</h6>
-            <select name="" id=""></select>
+            <select name="monedas" id="monedas">
+                <option value="usd"> Dolar </option>
+                <option value="eur"> Euro </option>
+                <option value="uf"> UF </option>
+                <option value="utm"> UTM </option>
+            </select>
             <br>
-            <button class="btg">Buscar</button>
-            <p>Resultado: </p>
+            <button type="button" class="btg" onclick="getMoneda()">Buscar</button>
+            <p class="moneda_valor">Resultado: </p>
         </div>
 
         <div class="grafico">
